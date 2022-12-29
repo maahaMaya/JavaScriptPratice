@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Refer Into HTML elements using - DOM Hierarchy</title>
+    <script type="text/javascript">
+        function bodyLoad(){
+            var result = document.getElementsByName('pay');
+            alert("Total Number of payment is Methods is : "+ result.length);
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <fieldset>
+        <legend>Payment Method</legend>
+        <input type="radio" name = "pay"> Cash
+        <input type="radio" name = "pay"> UPI
+        <input type="radio" name = "pay"> Card
+    </fieldset>
+</body>
+</html>

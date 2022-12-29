@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> output</title>
+    <script>
+        function DeleteMethodOne(){
+            if(confirm("Delte alll record") == true)
+                alert("Delte is succesfully");
+            else s
+                document.write("Delete is stop.")
+        }
+        function DeleteMethodTwo(){
+            if(confirm("Delte alll record") == true){
+                document.querySelector("h1").innerHTML = "<font color='red'>Delte is succesfully</font>";
+            }
+            else {  
+                document.querySelector("h1").outerHTML = "<font color='red'>Delete is stop.</font>";
+                //document.querySelector("h1").innerText = "Delete is stop.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Press button to call Delete Method : alert / confirm /document.write </h2>
+    <button onclick="DeleteMethodOne()">Delete</button>
+    <hr>
+    <h2>Press button to call Delete Method : innerText / innerHTML / outerHTML </h2>
+    <button onclick="DeleteMethodTwo()">Delete</button>
+    <h1 align="center"></h1>
+    <hr>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Refer Into HTML elements using - DOM Hierarchy</title>
+    <script type="text/javascript">
+        function bodyLoad(){
+            document.getElementById('pic').src = "./om.jfif";
+            document.getElementById('register').value = "Register";
+            document.getElementById('login').value = "Login";
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <img  id = "pic" width="100" height="100" border="1">
+    <div>
+        <form>
+            <h2>Register :</h2>
+            User Name : <input type = "text"> <input type = "button" id = "register">
+        </form>
+    </div>
+    <div>
+        <form>
+            <h2>Login</h2>
+            Email : <input type = "text"> <input type = "button" id = "login">
+        </form>
+    </div>
+</body>
+</html>
