@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input using prompt</title>
+    <script>
+        function CreateFolder(){
+            //prompt("Create folder") // default without name in input box
+            //prompt("Create folder" ,"New_folder_Name") // with input box name
+            folderName = prompt("Create folder" ,"New_folder_Name")
+            if(folderName == null){
+                document.write("You canceled.")
+            }
+            else if(folderName == ''){
+                document.write("Please provide name")
+            }
+            else {
+                document.querySelector("p").innerHTML = "folder created successfully : " + folderName;
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="CreateFolder()">Create folder</button>
+    <p></p>
+</body>
+</html>

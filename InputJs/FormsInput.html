@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        function SubmitMethod(){
+            document.getElementById("detailsContainer").style.display = "block";
+            document.getElementById("registerConatiner").style.display = "none";
+
+            document.getElementById("lblName").innerHTML = document.getElementById("txtName").value;
+            document.getElementById("lblPrice").innerHTML = document.getElementById("txtPrice").value;
+            document.getElementById("lblCity").innerHTML = document.getElementById("listCity").value;
+
+            var stock;
+            stockAvialble = document.getElementById("avilableStock");
+            if(stockAvialble.checked)
+            {
+                stock = "Stock is avilable";
+            }
+            else{
+                stock = "Stock is not avilable";
+            }
+            document.getElementById("lblStock").innerHTML = stock;
+        }
+    </script>
+    <title>Form Input</title>
+</head>
+<body class="conatiner-fluid">
+    <div class="mt-3" id="registerConatiner">
+        <button data-bs-toggle="modal" data-bs-target="#registerProducts" class="btn btn-primary">Register new product</button>
+    </div>
+    <div class="modal fade" id="registerProducts">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Register new Product</h2>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt>Name</dt>
+                        <dd><input id="txtName" type="text" class="form-control"></dd>
+                        <dt>Price</dt>
+                        <dd><input id="txtPrice" type="text" class="form-control"></dd>
+                        <dt>Shipped to</dt>
+                        <dd>
+                            <select id="listCity" class="form-select">
+                                <option>Delhi</option>
+                                <option>Pune</option>
+                                <option>Mumbai</option>
+                                <optioN>JSR</optioN>
+                            </select>
+                        </dd>
+                        <dt>Stock</dt>
+                        <dd  class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="avilableStock">
+                            <label class="form-check-label">Avaliable</label>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="SubmitMethod()" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="detailsContainer" style="display: none;">
+        <h2>Product details</h2>
+        <dl class="row">
+            <dt class="col-3">Name</dt>
+            <dd class="col-9" id="lblName"></dd>
+            <dt class="col-3">price</dt>
+            <dd class="col-9" id="lblPrice"></dd>
+            <dt class="col-3">Shipped to</dt>
+            <dd class="col-9" id="lblCity"></dd>
+            <dt class="col-3">Stock</dt>
+            <dd class="col-9" id="lblStock"></dd>
+        </dl>
+        <button data-bs-toggle="modal" data-bs-target="#registerProducts" class="btn btn-info">Edit</button>
+    </div>
+</body>
+</html>
