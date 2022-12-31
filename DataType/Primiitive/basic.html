@@ -1,0 +1,20 @@
+<script>
+    //Range is fixed and can not change
+    document.write(`Min = ${Number.MIN_SAFE_INTEGER} and Max = ${Number.MAX_SAFE_INTEGER}`);
+
+    //Number
+    var x = 10;
+    document.writeln(`Type of x is : ${typeof x} = ${x}`)
+    var x = true;
+    document.writeln(`Type of x is : ${typeof x} = ${x}`)
+
+    var h = "as"; // y is string
+    if(isNaN(h)) {
+        document.write("y is not a number");
+    } else{
+        console.log("y is  a number");
+    }
+    var a = "10";
+    var b = "20As";
+    console.log(parseInt(a) + parseInt(b));
+</script>
