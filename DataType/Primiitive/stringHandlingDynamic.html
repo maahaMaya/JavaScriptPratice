@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String handling Dynamic</title>
+    <script>
+        function ChangeColor(){
+            document.querySelector("p").style.color = document.querySelector("select").value;
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Choose Effects</legend>
+        <dl>
+            <dt>Font Color</dt>
+            <dd>
+                <select onchange="ChangeColor()">
+                    <option>Red</option>
+                    <option>Pink</option>
+                    <option>Yellow</option>
+                    <option>Black</option>
+                </select>
+            </dd>
+        </dl>
+    </fieldset>
+    <p>Welcome to javaScript</p>
+</body>
+</html>

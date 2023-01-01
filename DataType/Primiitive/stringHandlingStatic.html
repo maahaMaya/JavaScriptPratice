@@ -15,13 +15,18 @@
                 msg.innerHTML = "invalid name - 4 to 10 chars only".bold().fontcolor('red');
             }
         }
+
+        function ChangeCase(){
+            var msg = document.getElementById("txtName").value;
+            document.getElementById("txtName").value = msg.toUpperCase();
+        }
     </script>
 </head>
 <body>
     <h1>Register User</h1>
     <dl>
         <dt>User Name</dt>
-        <dd><input type="text" id="txtName"></dd>
+        <dd><input type="text" id="txtName" placeholder="Block Letters" onblur="ChangeCase()"></dd>
         <dd id="msg"></dd>
     </dl>
     <button onclick="SubmitClick()">Submit</button>
