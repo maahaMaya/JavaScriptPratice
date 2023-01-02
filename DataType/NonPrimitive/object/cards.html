@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+    <title>Cards</title>
+    <script>
+        var products = [{Name:"Samsung TV", Price: 34000.44, Photo:"../Images/tv.jpg"},
+                        {Name:"Nike Casuals", Price: 3000.44,Photo:"../Images/shoe.jpg"},
+                        {Name:"Mobile",Price:12000.33,Photo:"../Images/mob1.jpg"},
+                        {Name:"JBL Speaker", Price: 3000.44,Photo:"../Images/jblspeaker.jpg"},
+                        {Name:"Earpods", Price: 4000.44,Photo:"../Images/earpods.jpg"}];
+
+        function BodyLoad(){
+            for(var product of products){
+                var card = document.createElement("div");
+                card.className = "card w-25 m-2 p-2";
+                card.innerHTML = `
+                    <img src=${product.Photo} height="200" class="card-img-top">
+                    <div class="card-header">
+                        <h2>${product.Name}</h2>
+                    </div>
+                    <div class="card-body">
+                        <p> &#8377; ${product.Price} </p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-danger w-100">
+                            <span class="bi bi-cart4"></span> add to cart
+                        </button>
+                    <div>
+                    `;
+                    document.getElementById("catalog").appendChild(card);
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="BodyLoad()">
+    <div id="catalog" class="d-flex flex-wrap">
+        
+    </div>
+</body>
+</html>

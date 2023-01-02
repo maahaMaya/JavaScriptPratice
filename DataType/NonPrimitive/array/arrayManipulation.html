@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Manipulation</title>
+    <script>
+        var catogeries = ["all", "electronics", "footwear", "fashion"]
+        function bodyLoad(){
+            for(var catogery of catogeries){
+                //order list
+                var li = document.createElement("li");
+                li.innerHTML = catogery;
+                document.querySelector("ol").appendChild(li);
+
+                //dropdown
+                var op = document.createElement("option");
+                op.text = catogery;
+                //op.innerHTML =catogery;
+                document.querySelector("select").appendChild(op);
+                
+                //table
+                var row = document.createElement("tr");
+                var cell = document.createElement("td");
+                cell.innerHTML = catogery;
+                row.appendChild(cell);
+                document.querySelector("tbody").appendChild(row);
+
+                //checkbox
+                var checkList = document.createElement("li");
+                checkList.innerHTML = `<input type="checkbox"> ${catogery}`;
+                document.querySelector("ul").appendChild(checkList);
+            }
+        }
+    </script>
+    <style>
+        ul{
+            width: 200px;
+            border: 2px solid red;
+            height:50px;
+            overflow: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body onload="bodyLoad()">
+    <h3>Catogeries list</h3>
+    <ol></ol>
+    <h3>Select catogeries</h3>
+    <select></select>
+    <h3>Categories Menu</h3>
+    <table border="1" width="200">
+        <thead>
+            <tr>
+                <th>Product categories</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <h3>Check box</h3>
+    <ul style="list-style: none;"></ul>
+</body>
+</html>

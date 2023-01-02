@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <script>
+        var products = [{Name:"Samsung TV", Price: 34000.44, Photo:"../Images/tv.jpg"},
+                        {Name:"Nike Casuals", Price: 3000.44,Photo:"../Images/shoe.jpg"},
+                        {Name:"Mobile",Price:12000.33,Photo:"../Images/mob1.jpg"},
+                        {Name:"JBL Speaker", Price: 3000.44,Photo:"../Images/jblspeaker.jpg"},
+                        {Name:"Earpods", Price: 4000.44,Photo:"../Images/earpods.jpg"}];
+
+        function TableLoad(){
+            for(var product of products){
+                var tableRow = document.createElement("tr");
+                var tdName = document.createElement("td");
+                var tdPrice = document.createElement("td");
+                var tdImage = document.createElement("td");
+                
+                tdName.innerHTML = product.Name;
+                tdPrice.innerHTML = product.Price;
+
+                var productImg = document.createElement("img");
+                productImg.src = product.Photo;
+                productImg.width = 100;
+                productImg.height = 100;
+                tdImage.appendChild(productImg);
+
+                tableRow.appendChild(tdName);
+                tableRow.appendChild(tdPrice);
+                tableRow.appendChild(tdImage);      
+                
+                document.querySelector("tbody").appendChild(tableRow);
+            }
+        }
+    </script>
+</head>
+<body onload="TableLoad()">
+    <table border="1" width="500">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Preview</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>

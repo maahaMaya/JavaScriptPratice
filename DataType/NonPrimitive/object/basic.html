@@ -1,0 +1,50 @@
+<script>
+    //Object example
+    let tv = {
+        "name" : "Lg",
+        "price" : 29000,
+        "stock": true,
+        "quantity": 2,
+        "totalPrice": function(){
+            return this.price * this.quantity;
+        },
+        "print": function(){
+            return document.write(`Name : ${this.name} <br> Price : ${this.price} <br> Stock : ${this.stock} <br> Quantity : ${this.quantity} <br> Total price : ${this.totalPrice()}`);
+        }
+    }
+    tv.print();
+
+    //JSON
+    let product = {
+        "name" : "",
+        "price" : 0,
+        "stock": false,
+        "quantity": 0,
+        "cities": [],
+        "rating": {Rate:0, Count:0},
+        "totalPrice": function(){
+            return this.price * this.quantity;
+        },
+        "print": function(){
+            return document.write(`Name : ${this.name} <br> Price : ${this.price} <br> Stock : ${this.stock} <br> Quantity : ${this.quantity} <br> Rating : rate = ${this.rating.Rate} and count : ${this.rating.Count} <br> Cities : ${this.cities} <br> Total price : ${this.totalPrice()} <br>`);
+        }
+    }
+
+    document.write("<h2>Television details : </h2> ")
+    product.name = "Sony";
+    product.price = 3000;
+    product.quantity = 3;
+    product.cities = ["delhi", "pune"],
+    product.rating.Rate = 4.5,
+    product.rating.Count = 344;
+    product.print();
+
+    document.write("<h2>Shoe details : </h2> ")
+    product.name = "Adidas";
+    product.price = 4000;
+    product.quantity = 4;
+    product.cities = ["goa", "pune"],
+    product.rating.Rate = 4.8,
+    product.rating.Count = 214;
+    product.print();
+</script>

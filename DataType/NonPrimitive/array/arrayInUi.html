@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>Dyanamic element</title>
+    <script>
+        function AddClick(){
+            var arr = ["./shoe.png", "./visa.png", "./rupay.png"];
+            for(imgesPath of arr){
+                var img = document.createElement("img");
+                img.width="100";
+                img.height="100";
+                img.border="1";
+                img.src= imgesPath;
+                document.getElementById("container").appendChild(img);
+            }
+        }    
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="AddClick()">Add Image</button>
+    </div>
+    <div id="container">
+
+    </div>
+</body>
+</html>
