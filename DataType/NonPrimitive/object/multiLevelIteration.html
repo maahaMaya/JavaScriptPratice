@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var data = [
+            {category : "Electronics" , Products : ["apple", "sony", "nikon"]},
+            {category : "Footwear" , Products : ["nike", "lee"]},
+        ]
+
+        function bodyLoad(){
+            for(var item of data){
+                var listCategory = document.createElement("li");
+                listCategory.innerHTML = item.category;
+                for(var product of item.Products){
+                    var ulList = document.createElement("ul");
+                    var istPrloduct = document.createElement("li");
+                    istPrloduct.innerHTML = product;
+                    ulList.appendChild(istPrloduct);
+                    listCategory.appendChild(ulList);
+                }
+                document.querySelector("ol").appendChild(listCategory);
+            }
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <ol></ol>
+</body>
+</html>

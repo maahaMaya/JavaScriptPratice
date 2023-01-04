@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Shooping</title>
+    <script>
+        function bodyLoad(){
+            fetch("http://fakestoreapi.com/products/categories")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                data.unshift("all");
+                for(var item of data){
+                    var optionList = document.createElement("option");
+                    optionList.text = item.toUpperCase();
+                    optionList.value = item;
+                    document.getElementById("listCategory").appendChild(optionList);
+                }
+            })
+
+            fetch("http://fakestoreapi.com/products")
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(data){
+                for(var item of data){
+                    var div = document.createElement("div");
+                    div.className = "card m-2 p-2";
+                    div.style.width = "200px";
+                    div.innerHTML = `
+                        <img src=${item.image} class="card-img-top" height=200px;>
+                        <div class="card-header" style="height=200px;">
+                            <p>${item.title}</p>
+                        <div> 
+                        <div class="card-body">
+                            <p>${item.price}</p>
+                            <p>Rating : ${item.rating.rate}</p>
+                            <p>Count : ${item.rating.count}</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-danger w-100">
+                                <span class="bi bi-cart"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                </svg></span> add to cart
+                            </button>
+                        <div>
+                            `;
+                    document.getElementById("productCotainer").appendChild(div);
+                }
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyLoad()">
+    <header class="bg-danger text-white text-center">
+        <h1><span class="bi bi-cart"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg></span>Shopping Online
+        </h1>
+    </header>
+    <div class="row mt-3">
+        <div class="col-3">
+            <h3>Select a category</h3>
+            <select class="form-select" id="listCategory"></select>
+        </div>
+        <div class="col-9">
+            <div id="productCotainer" class="d-flex flex-wrap overflow-auto" style="height: 500px;"></div>
+        </div>
+    </div>   
+</body>
+</html>

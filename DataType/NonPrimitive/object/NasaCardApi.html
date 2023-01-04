@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Nasa Mars Api</title>
+    <script>
+        function bodyLoad(){
+            fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY")
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(data){
+                for(var item of data.photos){
+                    var div = document.createElement("div");
+                    
+                    div.className = "card m-2 p-2";
+                    div.style.width = "4 00px";
+                    div.innerHTML = `
+                        <img src=${item.img_src} class="card-img-top" height=200px;>
+                        <div class="card-header">
+                            <h2>${item.id}</h2>
+                        <div> 
+                        <div class="card-body">
+                            <dl>
+                                <dt>Camera Name<dt>
+                                <dd>${item.camera.full_name}</dd>
+                                <dt>Rover Name<dt>
+                                <dd>${item.rover.name}</dd>
+                            </dl>
+                        <div> 
+
+
+                        `;
+                    document.getElementById("dataContainer").appendChild(div);                  
+                }
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyLoad()">
+    <h2>Nasa Mars Rover Photos</h2>
+    <div class="d-flex flex-wrap" id="dataContainer"></div>
+</body>
+</html>
